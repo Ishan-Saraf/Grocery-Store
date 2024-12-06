@@ -78,7 +78,7 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
 
       {/* Products Section */}
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl text-c font-bold text-gray-900 mb-8">
+        <h2 className="text-3xl text-center font-bold text-gray-900 mb-8">
           Featured Products
         </h2>
         <Products onAddToCart={onAddToCart} />

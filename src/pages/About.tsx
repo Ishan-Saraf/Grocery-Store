@@ -38,7 +38,7 @@ export const About: React.FC = () => {
 
       <div className="bg-green-50 rounded-lg p-8">
         <h2 className="text-2xl font-bold text-center mb-6">Our Story</h2>
-        <p className="text-gray-600 max-w-3xl mx-auto">
+        <p className="text-gray-600 max-w-3xl text-center mx-auto">
           Founded in 2024, Fresh Mart began with a simple mission: to make fresh,
           quality groceries accessible to everyone. We've grown from a small local
           store to serving thousands of customers, but our commitment to quality

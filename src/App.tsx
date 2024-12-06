@@ -9,6 +9,7 @@ import { About } from './pages/About';
 import { CartItem, Product } from './types';
 import { Checkout } from './pages/Checkout';
 import { Profile } from './pages/Profile';
+import { Footer } from './components/Footer';
 
 function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -54,7 +55,7 @@ function App() {
         
         <main className="pt-16">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home onAddToCart={handleAddToCart} />} />
             <Route
               path="/products"
               element={<Products onAddToCart={handleAddToCart} />}
@@ -65,6 +66,8 @@ function App() {
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </main>
+
+        <Footer/>
 
         <Cart
           isOpen={isCartOpen}
@@ -79,3 +82,4 @@ function App() {
 }
 
 export default App;
+

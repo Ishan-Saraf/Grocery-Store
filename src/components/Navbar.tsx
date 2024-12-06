@@ -25,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({ cartItemsCount, onCartClick }) =
   ];
 
   return (
-    <nav className="bg-green-600 text-white py-4 px-6 fixed w-full top-0 z-50">
+    <nav className="bg-green-800 text-white py-4 px-6 fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <button onClick={toggleMobileMenu} className="md:hidden">

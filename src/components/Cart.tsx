@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, Minus, Plus, ShoppingCart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { CartItem } from '../types';
 
 interface CartProps {
@@ -85,12 +86,14 @@ export const Cart: React.FC<CartProps> = ({
             <span className="font-semibold">Total:</span>
             <span className="text-xl font-bold">${total.toFixed(2)}</span>
           </div>
-          <button
-            className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors"
-            disabled={items.length === 0}
+          <Link
+            to="/checkout"
+            onClick={onClose}
+            className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors inline-block text-center disabled:bg-gray-400"
+            style={{ pointerEvents: items.length === 0 ? 'none' : 'auto' }}
           >
-            Checkout
-          </button>
+            Proceed to Checkout
+          </Link>
         </div>
       </div>
     </div>

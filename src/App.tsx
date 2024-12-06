@@ -1,9 +1,14 @@
-import  { useState } from 'react';
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { ProductCard } from './components/ProductCard';
 import { Cart } from './components/Cart';
-import { products } from './data/products';
+import { Home } from './pages/Home';
+import { Products } from './pages/Products';
+import { Categories } from './pages/Categories';
+import { About } from './pages/About';
 import { CartItem, Product } from './types';
+import { Checkout } from './pages/Checkout';
+import { Profile } from './pages/Profile';
 
 function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -40,33 +45,36 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar
-        cartItemsCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)}
-        onCartClick={() => setIsCartOpen(true)}
-      />
-      
-      <main className="max-w-7xl mx-auto px-4 pt-24 pb-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Products</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {products.map(product => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onAddToCart={handleAddToCart}
+    <Router>
+      <div className="min-h-screen bg-gray-50">
+        <Navbar
+          cartItemsCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+          onCartClick={() => setIsCartOpen(true)}
+        />
+        
+        <main className="pt-16">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/products"
+              element={<Products onAddToCart={handleAddToCart} />}
             />
-          ))}
-        </div>
-      </main>
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </main>
 
-      <Cart
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        items={cartItems}
-        onUpdateQuantity={handleUpdateQuantity}
-        onRemoveItem={handleRemoveItem}
-      />
-    </div>
+        <Cart
+          isOpen={isCartOpen}
+          onClose={() => setIsCartOpen(false)}
+          items={cartItems}
+          onUpdateQuantity={handleUpdateQuantity}
+          onRemoveItem={handleRemoveItem}
+        />
+      </div>
+    </Router>
   );
 }
 

@@ -37,8 +37,8 @@ export const Checkout: React.FC = () => {
   const labelClassName = "block text-sm font-semibold text-gray-700 mb-1";
 
   return (
-    <div className=" max-w-3xl  mx-auto px-4 py-6 h-10 ">
-      <div className=" flex items-center justify-between bg-gray-100 mb-4">
+    <div className=" max-w-3xl  mx-auto px-4 py-6 ">
+      <div className=" flex items-center rounded-2xl justify-between bg-gray-200 mb-4">
         <div className="flex items-center ">
           <div className={`rounded-full p-3 ${step === 'shipping' ? 'bg-green-600 text-white' : 'bg-green-100 text-green-600'}`}>
             <Truck className="h-6 w-6" />
@@ -160,7 +160,7 @@ export const Checkout: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="w-full h-input bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-lg font-semibold"
+            className="w-full h-input bg-green-800 text-white rounded-lg hover:bg-green-700 transition-colors text-lg font-semibold"
           >
             Continue to Payment
           </button>
@@ -242,6 +242,7 @@ export const Checkout: React.FC = () => {
             </button>
           </div>
         </form>
+        
       )}
     </div>
   );

@@ -76,6 +76,8 @@ function App() {
           onUpdateQuantity={handleUpdateQuantity}
           onRemoveItem={handleRemoveItem}
         />
+
+        
       </div>
     </Router>
   );

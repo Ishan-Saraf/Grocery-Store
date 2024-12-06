@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       height: {
-        'input': '3.5rem'
+        'input': '3rem'
       }
     },
   },

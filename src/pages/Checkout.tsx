@@ -49,7 +49,7 @@ export const Checkout: React.FC = () => {
           </div>
         </div>
         <span className="text-sm text-gray-500">
-          Step {step === 'shipping' ? '1' : '2'} of 2
+          Step {step === 'shipping' ? '1' : '2'} of 2 &nbsp;
         </span>
       </div>
 
@@ -62,7 +62,7 @@ export const Checkout: React.FC = () => {
               <input
                 type="text"
                 required
-                placeholder="Enter your first name"
+                placeholder="Enter first name"
                 className={inputClassName}
                 value={formData.shippingAddress.firstName}
                 onChange={(e) => setFormData({
@@ -76,7 +76,7 @@ export const Checkout: React.FC = () => {
               <input
                 type="text"
                 required
-                placeholder="Enter your last name"
+                placeholder="Enter last name"
                 className={inputClassName}
                 value={formData.shippingAddress.lastName}
                 onChange={(e) => setFormData({

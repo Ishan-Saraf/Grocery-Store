@@ -52,7 +52,7 @@ export const Cart: React.FC<CartProps> = ({
                   />
                   <div className="flex-1">
                     <h3 className="font-semibold">{item.name}</h3>
-                    <p className="text-green-600">${item.price.toFixed(2)}</p>
+                    <p className="text-green-600">₹ {item.price.toFixed(2)}</p>
                     <div className="flex items-center gap-2 mt-2">
                       <button
                         onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
@@ -84,7 +84,7 @@ export const Cart: React.FC<CartProps> = ({
         <div className="border-t p-4">
           <div className="flex justify-between items-center mb-4">
             <span className="font-semibold">Total:</span>
-            <span className="text-xl font-bold">${total.toFixed(2)}</span>
+            <span className="text-xl font-bold">₹ {total.toFixed(2)}</span>
           </div>
           <Link
             to="/checkout"

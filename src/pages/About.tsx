@@ -1,10 +1,16 @@
 import React from 'react';
 import { Users, Leaf, Heart } from 'lucide-react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export const About: React.FC = () => {
+  React.useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="max-w-3xl mx-auto text-center mb-12">
+    <div className="max-w-7xl mx-auto px-4 py-8" >
+      <div className="max-w-3xl mx-auto text-center mb-12" >
         <h1 className="text-3xl font-bold text-gray-900 mb-4">About Fresh Mart</h1>
         <p className="text-lg text-gray-600">
           We're committed to bringing the freshest groceries right to your doorstep,
@@ -12,7 +18,7 @@ export const About: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" data-aos="fade-up" data-aos-duration="1000" >
         <div className="text-center">
           <Users className="h-12 w-12 text-green-600 mx-auto mb-4" />
           <h2 className="text-xl font-semibold mb-2">Our Team</h2>

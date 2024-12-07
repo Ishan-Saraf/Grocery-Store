@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { CreditCard, Truck, ChevronRight } from 'lucide-react';
 import { CheckoutFormData } from '../types';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export const Checkout: React.FC = () => {
+  React.useEffect(() => {
+    AOS.init();
+  }, []);
+
   const [step, setStep] = useState<'shipping' | 'payment'>('shipping');
   const [formData, setFormData] = useState<CheckoutFormData>({
     shippingAddress: {
@@ -37,7 +43,7 @@ export const Checkout: React.FC = () => {
   const labelClassName = "block text-sm font-semibold text-gray-700 mb-1";
 
   return (
-    <div className=" max-w-3xl  mx-auto px-4 py-6 ">
+    <div className=" max-w-3xl  mx-auto px-4 py-6" data-aos="zoom-in" data-aos-duration="1000">
       <div className=" flex items-center rounded-2xl justify-between bg-gray-200 mb-4">
         <div className="flex items-center ">
           <div className={`rounded-full p-3 ${step === 'shipping' ? 'bg-green-600 text-white' : 'bg-green-100 text-green-600'}`}>
@@ -166,7 +172,7 @@ export const Checkout: React.FC = () => {
           </button>
         </form>
       ) : (
-        <form onSubmit={handlePaymentSubmit} className="space-y-6 bg-white p-6 rounded-lg shadow-sm">
+        <form onSubmit={handlePaymentSubmit} className="space-y-6 bg-white p-6 rounded-lg shadow-sm" >
           <h2 className="text-2xl font-bold text-gray-900">Payment Information</h2>
           <div>
             <label className={labelClassName}>Card Number</label>

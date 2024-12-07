@@ -15,7 +15,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }
         alt={product.name}
         className="w-full h-48 object-cover"
       />
-      <div className="p-4">
+      <div className="p-4" >
         <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
         <p className="text-gray-600 text-sm mb-2">{product.description}</p>
         <div className="flex justify-between items-center">

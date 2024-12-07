@@ -4,12 +4,18 @@ import { Link } from "react-router-dom";
 import { Products } from "./Products";
 import { OfferList } from "../components/OfferList";
 import { Product } from "../types";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface HomeProps {
   onAddToCart: (product: Product) => void;
 }
 
 export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
+  React.useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="space-y-12">
       {/* Hero Section */}
@@ -41,7 +47,11 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
       </div>
 
       {/* Features Section */}
-      <div className="max-w-7xl mx-auto px-4">
+      <div
+        className="max-w-7xl mx-auto px-4"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-sm">
             <ShoppingBag className="h-12 w-12 text-green-600 mb-4" />
@@ -69,7 +79,10 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
       </div>
 
       {/* Offers Section */}
-      <div className="max-w-7xl mx-auto text-center px-4">
+      <div className="max-w-7xl mx-auto text-center px-4"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      >
         <h2 className="text-3xl font-bold text-gray-900 mb-8">
           Special Offers
         </h2>
@@ -77,7 +90,7 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
       </div>
 
       {/* Products Section */}
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4" data-aos="fade-up" data-aos-duration="1000" >
         <h2 className="text-3xl text-center font-bold text-gray-900 mb-8">
           Featured Products
         </h2>

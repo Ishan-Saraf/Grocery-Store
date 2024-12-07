@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { User, Mail, Phone, MapPin, Save } from 'lucide-react';
 import { UserProfile } from '../types';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export const Profile: React.FC = () => {
+  React.useEffect(() => {
+    AOS.init();
+  }, []);
+
   const [profile, setProfile] = useState<UserProfile>({
     firstName: '',
     lastName: '',
@@ -26,7 +32,7 @@ export const Profile: React.FC = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className="max-w-3xl mx-auto px-4 py-8" data-aos="zoom-out" data-aos-duration="1000">
       <div className="bg-gray-100 rounded-lg shadow-md p-6">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">My Profile</h1>

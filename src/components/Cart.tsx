@@ -2,6 +2,8 @@ import React from 'react';
 import { X, Minus, Plus, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { CartItem } from '../types';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface CartProps {
   isOpen: boolean;
@@ -20,12 +22,17 @@ export const Cart: React.FC<CartProps> = ({
 }) => {
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
+  React.useEffect(() => {
+    AOS.init();
+  }, []);
+
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50" data-aos="zoom-out-left">
       <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-lg">
-        <div className="p-4 flex justify-between items-center border-b">
+        <div className="p-4 flex justify-between items-center border-b" >
           <h2 className="text-xl font-semibold flex items-center gap-2">
             <ShoppingCart className="h-6 w-6" />
             Your Cart

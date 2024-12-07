@@ -10,6 +10,7 @@ import { CartItem, Product } from './types';
 import { Checkout } from './pages/Checkout';
 import { Profile } from './pages/Profile';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';  
 
 function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />  
       <div className="min-h-screen bg-gray-50">
         <Navbar
           cartItemsCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)}
@@ -67,7 +69,7 @@ function App() {
           </Routes>
         </main>
 
-        <Footer/>
+        <Footer />
 
         <Cart
           isOpen={isCartOpen}
@@ -76,12 +78,9 @@ function App() {
           onUpdateQuantity={handleUpdateQuantity}
           onRemoveItem={handleRemoveItem}
         />
-
-        
       </div>
     </Router>
   );
 }
 
 export default App;
-
